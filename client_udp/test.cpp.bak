@@ -1,0 +1,27 @@
+#include "client.h"
+
+
+
+int main(int argc, char* argv[])
+{
+	client cl(argv[1],atoi(argv[2]));
+	cl.startup();
+
+	string s;
+	string r;
+	cin>>s;
+	cl.send_msg(s);
+	sleep(1);
+	cl.recv_msg(r);
+	cout<<r<<endl;
+	sleep(3);
+
+	cin>>s;
+	cl.send_msg(s);
+	sleep(1);
+	cl.recv_msg(r);
+	cout<<r<<endl;
+	sleep(3);
+    return 0;
+
+}

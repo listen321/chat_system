@@ -1,0 +1,30 @@
+#include "window.h"
+void* titleshow(void* arg)
+{
+    window* w = (window *)arg;
+	string s = "Weclome To Chat System";
+    w->mvtitle(s);
+}
+void* inputshow(void* arg)
+{
+
+   window* w = (window *)arg;
+   string s;
+   w->str_to_input_win(s);
+}
+int main()
+{
+	window w;
+	w.drawtitle();
+	w.drawoutput();
+	w.drawfriendlist();
+	w.drawinput();
+	pthread_t t1;
+	pthread_t t2;
+	pthread_create(&t1, NULL, titleshow, (void*)&w);
+	pthread_create(&t2, NULL, inputshow, (void*)&w);
+	pthread_join(t1, NULL);
+	pthread_join(t2, NULL);
+	sleep(3);
+	return 0;
+}

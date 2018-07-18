@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+#include "data.h"
+
+int main()
+{
+	data da;
+	string s;
+	string o;
+	da.serialize(s);
+	cout<<"serialize: "<<s<<endl;
+    da.deserialize(s);
+	cout<<da.NickName<<endl;
+	cout<<da.school<<endl;
+	return 0;
+}

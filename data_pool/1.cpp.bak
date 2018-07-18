@@ -1,0 +1,15 @@
+#include "data_pool.h"
+#include <unistd.h>
+
+int main()
+{
+    data_pool p(100);
+    p.show();
+    std::string s="nihao";
+	std::string o;
+	p.put_str(s);
+	p.get_str(o);
+	cout<<o<<endl;
+	return 0;
+
+}
